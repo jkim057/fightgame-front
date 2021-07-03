@@ -4,6 +4,12 @@
 3. animation.css with animate.css --save
 
 
+# What's setup?
+1. TurnTally tracker, but kinda basic ✅
+
+
+✅
+❌
 
 
 # Getting Started with Create React App

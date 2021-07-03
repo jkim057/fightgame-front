@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TurnTally, } from './components'
+import { TurnTally, FighterHP, BossHP } from './components'
 // need to stick { useState, useEffect }  into the import from react
 
 function App() {
@@ -65,6 +65,8 @@ function App() {
   return (
     <div className="App">
       <TurnTally />
+      <FighterHP />
+      <BossHP />
     </div>
   );
 }
