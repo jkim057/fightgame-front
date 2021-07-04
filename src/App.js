@@ -3,8 +3,13 @@ import React, { useState } from 'react';
 import { 
   TurnTally, 
   FighterHP, 
-  BossHP 
+  BossHP,
+  Fighter,
+  Boss 
 } from './components'
+
+import './App.css';
+import 'animate.css'
 
 // need to stick { useState, useEffect }  into the import from react
 
@@ -52,10 +57,10 @@ function App() {
   }
   
   return (
-    <div className="App">>
+    <div className="App">
       <div className="models">
-        <img src="" alt="fighter" srcset="" />
-        <img src="" alt="boss" srcset="" />
+        <Fighter />
+        <Boss />
       </div>
       <div className="status">
         <button onClick={handleClick}> go time</button>

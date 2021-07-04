@@ -1,1 +1,16 @@
+.models{
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.fighterImg{
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
+
+.bossImg{
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
