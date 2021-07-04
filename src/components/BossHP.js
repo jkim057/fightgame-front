@@ -1,29 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const BossHP = () => {
-    const [hp, setHp] = useState(100);
+const BossHP = ({bossHp, setBossHp, handleClick, resetStats }) => {
+    // const [bossHp, setBossHp] = useState(100);
     
-    
-    const decreaseHp = () => {
-        let damage = Math.floor(Math.random() * 101)
-        let lastHp = hp
+    // const decreaseBossHp = () => {
+    //     let damage = Math.floor(Math.random() * 101)
+    //     let lastHp = bossHp
   
-        // if boss hp is less than 0 return 0
-        if(lastHp - damage <= 0) {
-            setHp(0)
-        } else {
-            lastHp = lastHp - damage
-            setHp(lastHp)
-        }
-    }
+    //     // if boss hp is less than 0 return 0
+    //     if(lastHp - damage <= 0) {
+    //         setBossHp(0)
+    //     } else {
+    //         lastHp = lastHp - damage
+    //         setBossHp(lastHp)
+    //     }
+    // }
 
     return(
         <div>
-        <div className="BossHp">
-            <button onClick={decreaseHp}> why won't you go down</button>
-            <p> Boss HP : { hp } </p>
-        </div>
-        <button onClick={()=> setHp(100)}>reset</button>
+            <div className="BossHp" onClick={handleClick} >
+                <p onClick={resetStats}> Boss HP : { bossHp } </p>
+            </div>
         </div>
     );
 };

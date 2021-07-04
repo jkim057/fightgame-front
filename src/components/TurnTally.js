@@ -1,19 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const TurnTally = () => {
-    const [turn, setTurn] = useState(0)
+const TurnTally = ({turn, setTurn, handleClick, resetStats}) => {
 
-    const increaseTurn = () => {
-        setTurn(lastTurn => lastTurn +1)
-    }
 
     return(
         <div>
-        <div className="turnTally">
-            <button onClick={increaseTurn}> Start it up</button>
-            <p> Turn : { turn} </p>
-        </div>
-        <button onClick={()=> setTurn(0)}>reset</button>
+            <div className="turnTally" onClick={handleClick}>
+                <p onClick={resetStats} > Turn : { turn } </p>
+            </div>
         </div>
     );
 };

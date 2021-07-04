@@ -1,19 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const FighterHP = () => {
-    const [hp, setHp] = useState(10)
-
-    const decreaseHp = () => {
-        setHp(lastHp => lastHp - 1)
-    }
+const FighterHP = ({fighterHp, setFighterHp, handleClick, resetStats}) => {
 
     return(
         <div>
-        <div className="fighterHp">
-            <button onClick={decreaseHp}> ugh the pain</button>
-            <p> Fighter HP : { hp } </p>
-        </div>
-        <button onClick={()=> setHp(0)}>reset</button>
+            <div className="fighterHp" onClick={handleClick}>
+                <p onClick={resetStats}> Fighter HP : { fighterHp } </p>
+            </div>
         </div>
     );
 };
