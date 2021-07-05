@@ -50,6 +50,12 @@ function App() {
       setTurn(lastTurn => lastTurn +1)
   }
 
+  const gameOver = () => {
+    if(fighterHp <= 0){
+      return true
+    }
+  }
+
 
 
 
@@ -101,11 +107,25 @@ function App() {
           handleClick={clickAttack}
           resetStats={resetStats}
           />
-        <button onClick={clickAttack}> go time </button>
-        <button onClick={clickHeal}> heal me </button>
-        <button onClick={resetStats}>game over man, try again?</button>
-        {/* <FighterHP fighterHp={fighterHp} setFighterHp={setFighterHp} decreaseFighterHp={decreaseFighterHp} handleClick={clickAttack} resetStats={resetStats}/> */}
-        {/* <BossHP bossHp={bossHp} setbossHp={setBossHp} decreaseBossHp={decreaseBossHp} handleClick={clickAttack} resetStats={resetStats}/> */}
+          {/* if bossHP is less than/equal to 0, buttons are disabled */}
+        <button 
+          disabled={!bossHp > 0}
+          onClick={(e) => {
+            if (!gameOver()) return clickAttack()}}> go time </button>
+        <button 
+          disabled={!bossHp > 0}
+          onClick={(e) => {
+            if (!gameOver()) return clickHeal()}}> heal me </button>
+        <button onClick={resetStats}>flee you fools</button>
+        {/* need to link flee button resetStats to end screen and score calculation trigger */}
+        {/* <button 
+                disabled={!isRunning || gameOver}
+                className="control-button" 
+                onClick={(e) => {
+                    if (!isRunning || gameOver) { return } 
+                    dispatch(moveLeft())
+                }}>Left</button> */}
+
       </div>
     </div>
   );

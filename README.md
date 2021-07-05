@@ -8,22 +8,36 @@
 1. TurnTally tracker, but kinda basic ✅
 1. fighterHP tracker done ✅
 1. bossHP With randomized damaged done ✅
-1. linked 3 trackers into single button press for start and reset.
-1. created example of animation movement
-1. Reorganize so fighterIMG + fighterHP would be in same component
-1. Reorganize so bossIMG + bossHP would be in same component
+1. linked 3 trackers into single button press for start and reset.  ✅
+1. created example of animation movement. ✅
+1. Reorganize so fighterIMG + fighterHP would be in same component.  ✅
+1. Reorganize so bossIMG + bossHP would be in same component. ✅
 ✅
 ❌
 
 # next steps:
 1. need to link the 3 seperate trackers to 1 button press ✅
 1. need to link animation to button press.
-1. New issue, grid is not holding bosses properly
-1. Display, want to have status bar next to fighter/boss image
-1. add item heal functionality?
+1. New issue, grid is not holding bosses properly ✅
+1. Display, want to have status bar next to fighter/boss image ✅
+1. add item heal functionality? ✅
+
+1. Replace image placeholders with actual image
+1. add hitrate/chance to calculator
+
+1. Need to add start screen and end screen
+2. Need way to trigger end screen when either boss HP hits 0 or player HP hits 0
+3. Need way for add form that players can add name
+1. Need way to connect winners object to backend? (so winner object with equipment(?), name, and score)
 
 # challenges/blockers:
 1. Attempted to link 3 functions in 3 seperate components into single button and pass down the event at the same time, struggled with this until I remember that I needed to move those functions into single function on main app.js page and pass that new combined function down into the 3 components. repeated that process for the reset button as well. ✅
+
+1. Page was not displaying image and names and health bars in correct position. Eventually realized excessive number of div containers from previous state of code was interfering with display: grid command. Refracting code cleared up issues. Page now displays boss status next to image(placeholder) and the fighter status next to image(placeholder)✅
+
+1. Was trying to find a way to disable attacking & healing if fighter hp <= 0 and disable healing if fighter hp > 9, and found a way to A. Disable the button, and also B. present onclick commands from being sent during game over ✅
+
+
 
 # Getting Started with Create React App
 
