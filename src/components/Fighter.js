@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Fighter = () => {
+const Fighter = ({fighterHp, clickAttack, clickHeal, resetStats}) => {
     return (
-        <div>
-            <div className='fighterImg animate__animated animate__bounceInLeft'>Fighter</div>
+        <div className="fighterContainer" onClick={clickAttack}>
+                <h1 className="fighterName fighterStatus" onClick={clickHeal} >Fighter</h1>
+                <p className="fighterHp fighterStatus" onClick={resetStats}> HP : {fighterHp} / 10 </p>
+            <p className='fighterImg animate__animated animate__bounceInRight'>Fighter</p>
             {/* <img src="" alt="fighter" srcset="" /> */}
         </div>
     );

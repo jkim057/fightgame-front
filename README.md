@@ -9,12 +9,18 @@
 1. fighterHP tracker done ✅
 1. bossHP With randomized damaged done ✅
 1. linked 3 trackers into single button press for start and reset.
+1. created example of animation movement
+1. Reorganize so fighterIMG + fighterHP would be in same component
+1. Reorganize so bossIMG + bossHP would be in same component
 ✅
 ❌
 
 # next steps:
 1. need to link the 3 seperate trackers to 1 button press ✅
-
+1. need to link animation to button press.
+1. New issue, grid is not holding bosses properly
+1. Display, want to have status bar next to fighter/boss image
+1. add item heal functionality?
 
 # challenges/blockers:
 1. Attempted to link 3 functions in 3 seperate components into single button and pass down the event at the same time, struggled with this until I remember that I needed to move those functions into single function on main app.js page and pass that new combined function down into the 3 components. repeated that process for the reset button as well. ✅

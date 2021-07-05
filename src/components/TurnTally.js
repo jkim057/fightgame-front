@@ -1,11 +1,11 @@
 import React from 'react';
 
-const TurnTally = ({turn, setTurn, handleClick, resetStats}) => {
+const TurnTally = ({turn, setTurn, clickAttack, clickHeal,resetStats}) => {
 
 
     return(
-        <div>
-            <div className="turnTally" onClick={handleClick}>
+        <div onClick={clickHeal}>
+            <div className="turnTally" onClick={clickAttack}>
                 <p onClick={resetStats} > Turn : { turn } </p>
             </div>
         </div>

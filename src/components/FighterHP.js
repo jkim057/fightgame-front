@@ -1,14 +1,14 @@
-import React from 'react';
+// import React from 'react';
 
-const FighterHP = ({fighterHp, setFighterHp, handleClick, resetStats}) => {
+// const FighterHP = ({fighterHp, setFighterHp, clickAttack, clickHeal, resetStats}) => {
 
-    return(
-        <div>
-            <div className="fighterHp" onClick={handleClick}>
-                <p onClick={resetStats}> Fighter HP : { fighterHp } </p>
-            </div>
-        </div>
-    );
-};
+//     return(
+//         <div onClick={clickHeal}>
+//             <div className="fighterHp" onClick={clickAttack}>
+//                 <p onClick={resetStats}> Fighter HP : { fighterHp } </p>
+//             </div>
+//         </div>
+//     );
+// };
 
-export default FighterHP;
+// export default FighterHP;
