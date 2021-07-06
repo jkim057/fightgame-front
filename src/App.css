@@ -53,6 +53,11 @@
     border: 2px solid black;
 }
 
+/* How do I toggle this to the images so that animations play when combat/healing is chosen? */
+/* .combat{
+    animation: animate__swing;
+    animation-duration: 2s;
+} */
 
 /* container holding fighterStatus and fighterImg */
 .fighterContainer{

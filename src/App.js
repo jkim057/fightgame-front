@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-
-// imported components into index.js file 
+import React, { useState, useCallback, useEffect } from 'react';
+// import LoadingOverlay from 'react-loading-overlay-ts';
+import  'react-router-dom'
 import { 
   TurnTally, 
   // FighterHP, 
@@ -8,22 +8,23 @@ import {
   Fighter,
   Boss 
 } from './components'
-
-// imported CSS and Animate.css for styling and animation
+// imported components into index.js file 
 import './App.css';
 import 'animate.css'
+// imported CSS and Animate.css for styling and animation
 
-
+/////// Functions ///////
 
 function App() {
   // setup states for HP(fighter & boss) and turns.
   const [bossHp, setBossHp] = useState(1000);
-  const [fighterHp, setFighterHp] = useState(10)
+  let maxHp = 10
+  const [fighterHp, setFighterHp] = useState(maxHp)
   const [turn, setTurn] = useState(0)
 
   // boss damage taken function, setup with random damage numbers
   const decreaseBossHp = () => {
-      let damage = Math.floor(Math.random() * 501)
+      let damage = Math.floor(Math.random() * 101)
       let lastHp = bossHp
 
       // if boss hp is less than 0 return 0
@@ -83,8 +84,32 @@ function App() {
     setFighterHp(10);
   }
 
+  // can I set this to be my toggleClass function?
+  // const battleAnim = () => {
+  //   // on click, add fighter swig animation, 
+  // }
+
+  
+
+  // The overlay just shows up, but there's no way to get rid of it.
+
+    // const [isActive, setActive] = useState(true)
+    // const overlayClick = useCallback(() => {
+    //   setActive(value => !value)
+    // }, [])
+
   
   return (
+    // <LoadingOverlay
+    //   active={isActive}
+    //   spinner
+    //   text='Welcome to FIGHT GAME. Choose your weapon'
+    // >
+    //   <div style={{ height: 200 }}>
+    //     <p>Some content or children or something.</p>
+    //     <button onClick={overlayClick}>Toggle active</button>
+    //   </div>
+
     <div className="container">
       <div className="models">
         <Boss
@@ -108,12 +133,13 @@ function App() {
           resetStats={resetStats}
           />
           {/* if bossHP is less than/equal to 0, buttons are disabled */}
+          <p> What do you want to do? </p>
         <button 
-          disabled={!bossHp > 0}
+          disabled={!bossHp > 0 || fighterHp === 0}
           onClick={(e) => {
             if (!gameOver()) return clickAttack()}}> go time </button>
         <button 
-          disabled={!bossHp > 0}
+          disabled={fighterHp === 10 || fighterHp === 0 || !bossHp > 0}
           onClick={(e) => {
             if (!gameOver()) return clickHeal()}}> heal me </button>
         <button onClick={resetStats}>flee you fools</button>
@@ -128,6 +154,7 @@ function App() {
 
       </div>
     </div>
+    // </LoadingOverlay>
   );
 }
 

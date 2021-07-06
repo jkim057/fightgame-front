@@ -1,7 +1,8 @@
 # using what?
 1. react with create-react-app
-2. react-router-dom
-3. animation.css with animate.css --save
+2. DOM with react-router-dom
+3. Animation.css with animate.css --save
+4. Overlays with react-loading-overlay-ts
 
 
 # What's setup?
@@ -21,6 +22,7 @@
 1. New issue, grid is not holding bosses properly ✅
 1. Display, want to have status bar next to fighter/boss image ✅
 1. add item heal functionality? ✅
+1. prevent attack or heal if fighterHp hits 0, prevent heal when HP is max
 
 1. Replace image placeholders with actual image
 1. add hitrate/chance to calculator
@@ -30,6 +32,8 @@
 3. Need way for add form that players can add name
 1. Need way to connect winners object to backend? (so winner object with equipment(?), name, and score)
 
+1. setup start screen and end screen with react-loading-overlay-ts
+
 # challenges/blockers:
 1. Attempted to link 3 functions in 3 seperate components into single button and pass down the event at the same time, struggled with this until I remember that I needed to move those functions into single function on main app.js page and pass that new combined function down into the 3 components. repeated that process for the reset button as well. ✅
 
@@ -37,7 +41,13 @@
 
 1. Was trying to find a way to disable attacking & healing if fighter hp <= 0 and disable healing if fighter hp > 9, and found a way to A. Disable the button, and also B. present onclick commands from being sent during game over ✅
 
+1. Trying to setup start screen with equipment selection, trying to useCallBack and overlay to build it.
 
+1. How do I add battle/reaction animations? toggleClass on buttonClick for attack and what not? it sounds good, but not sure how it is actually done. Might save this for post MVP
+
+
+# Sources:
+https://www.npmjs.com/package/react-loading-overlay-ts
 
 # Getting Started with Create React App
 
