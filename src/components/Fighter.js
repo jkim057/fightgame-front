@@ -6,7 +6,7 @@ const Fighter = ({fighterHp, clickAttack, clickHeal, resetStats, healLimit, acti
         // entrance
         "0": "fighterImg animate__animated animate__bounceInRight",
         // attack boss
-        "1": "fighterImg animate__animated animate__flip",
+        "1": "fighterImg animate__animated animate__swing",
         // heal self
         "2": "fighterImg animate__animated animate__heartBeat",
         // restart game
@@ -26,8 +26,10 @@ const Fighter = ({fighterHp, clickAttack, clickHeal, resetStats, healLimit, acti
                 <p className="fighterHp fighterStatus" onClick={resetStats}> HP : {fighterHp} / 10 </p>
                 <p className="fighterHeals fighterStatus"> Heals Left : {healLimit} </p>
                 {/* javascript expression of objects makes the classes show up conditionally */}
-            <p className={classes[active]}>Fighter</p>
-            {/* <img src="./img/fighter.jpg" alt="fighter"/> */}
+                <div className={classes[active]}>
+                    <img className="fightMan" src="../img/fighter.jpg" alt="fighter"/>
+                    <img className="fightSword" src="../img/sword.jpg" alt="sword"/>
+                </div>
         </div>
     );
 };

@@ -23,8 +23,8 @@ const Boss = ({bossHp, clickAttack, resetStats, active }) => {
         <div className="bossContainer" onClick={clickAttack}>
                 <h1 className="bossName bossStatus">Boss</h1> 
                 <p className="bossHp bossStatus" onClick={resetStats}> HP : {bossHp} / 1000 </p>
-                <p className={classes[active]}> Boss </p>
-                <img src="././img/fighter.jpeg" alt="" />
+                {/* <p className={classes[active]}> Boss </p> */}
+                <img className={classes[active]} src="../img/boss.jpg" alt="boss"/>
            
             {/* <img src="" alt="boss" srcset="" /> */}
             {/* do I have to set a delay on the boss animation to FOLLOW the fighter animation? */}
