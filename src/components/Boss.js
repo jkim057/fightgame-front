@@ -11,7 +11,7 @@ const Boss = ({bossHp, clickAttack, resetStats, active }) => {
         // restarting game
         "3": "bossImg animate__animated animate__backInDown",
         // attack fighter
-        "4": "bossImg animate__animated animate__flip",
+        "4": "bossImg animate__animated animate__swing",
         // standby
         "5": "bossImg animate__animated animate__pulse"
 
@@ -23,10 +23,9 @@ const Boss = ({bossHp, clickAttack, resetStats, active }) => {
         <div className="bossContainer" onClick={clickAttack}>
                 <h1 className="bossName bossStatus">Boss</h1> 
                 <p className="bossHp bossStatus" onClick={resetStats}> HP : {bossHp} / 1000 </p>
-                {/* <p className={classes[active]}> Boss </p> */}
                 <img className={classes[active]} src="../img/boss.jpg" alt="boss"/>
            
-            {/* <img src="" alt="boss" srcset="" /> */}
+
             {/* do I have to set a delay on the boss animation to FOLLOW the fighter animation? */}
         </div>
     );

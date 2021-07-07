@@ -63,7 +63,9 @@ function App() {
       setTurn(lastTurn => lastTurn +1)
   }
 
-
+  const aniTimer = (param) =>{
+    setTimeout(setActive(param), 1000)
+  }
 
 
   // when player choose to fight, boss hp goes down, fighter hp goes down, turn tally goes up
@@ -72,6 +74,8 @@ function App() {
     decreaseFighterHp();
     increaseTurn();
     setActive(1);
+    // setActive()
+    // aniTimer(5);
   };
 
   // when player chooses heal, fighter hp goes up, turn tally goes up, boss takes no damage.
@@ -79,6 +83,7 @@ function App() {
     healFighterHp();
     increaseTurn();
     setActive(2);
+    // setActive(5);
   }
 
   // total reset of turns and hp.

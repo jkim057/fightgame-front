@@ -18,6 +18,16 @@ It's deployed here => https://fight-game-front.herokuapp.com/
 1. Reorganize so fighterIMG + fighterHP would be in same component.  ✅
 1. Reorganize so bossIMG + bossHP would be in same component. ✅
 1. Set limits on heals so players can't spam heals to survive. ✅
+1. New issue, grid is not holding bosses properly EDIT: Grid now holds items correctly ✅
+1. Display: want to have status bar next to fighter/boss image ✅
+1. add item heal functionality? ✅
+1. prevent attack or heal if fighterHp hits 0 ✅
+1. prevent heal when HP is max or higher ✅
+1. prevent infinite heal spam ✅ 
+1. Replace image placeholders with actual image ✅
+1. Add win and lose notifications for end screenwith modals ✅
+1. Need way to trigger win/lose status when either boss HP hits 0 or player HP hits 0 ✅
+
 ✅
 ❌
 
@@ -26,20 +36,11 @@ It's deployed here => https://fight-game-front.herokuapp.com/
 1. need to link animation to button press. ✅
 2. Need to be able to get animation to play in right order
 3. Need to get animation to be able to repeat
-1. New issue, grid is not holding bosses properly ✅
-1. Display, want to have status bar next to fighter/boss image ✅
-1. add item heal functionality? ✅
-1. prevent attack or heal if fighterHp hits 0 ✅
-1. prevent heal when HP is max or higher ✅
-1. prevent infinite heal spam ✅ 
 
-1. Replace image placeholders with actual image
 
 # MVP
-1. Add win and lose notifications (modals)
-1. setup start screen and end screen with react-loading-overlay-ts or modal
-2. Need way to trigger end screen when either boss HP hits 0 or player HP hits 0
 ## Bronze Goals
+1. setup start screen with modals
 1. add hitrate/chance to calculator
 1. Need to add start screen and end screen
 1. Add Start screen modal that allows users to pick equipment
@@ -66,5 +67,7 @@ It's deployed here => https://fight-game-front.herokuapp.com/
 
 
 # Sources:
-https://www.npmjs.com/package/react-loading-overlay-ts
-
+1. https://animate.style/ for Animate.css 
+1. https://www.npmjs.com/package/react-loading-overlay-ts
+1. https://www.pluralsight.com/guides/create-a-hover-button-in-a-react-app
+1. https://reactjs.org/docs/conditional-rendering.html
