@@ -9,7 +9,7 @@ const Boss = ({bossHp, clickAttack, resetStats, active }) => {
         // waiting for player to heal
         "2": "bossImg animate__animated animate__pulse",
         // restarting game
-        "3": "bossImg animate__animated animate__backInDown",
+        "3": "bossImg animate__animated animate__fadeInDown",
         // attack fighter
         "4": "bossImg animate__animated animate__swing",
         // standby

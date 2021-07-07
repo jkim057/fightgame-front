@@ -139,12 +139,12 @@ function App() {
         <button 
           disabled={!bossHp > 0 || fighterHp === 0}
           onClick={(e) => {
-            if (!endgame) return clickAttack()}}> go time </button>
+            if (!endgame) return clickAttack()}}> PUNCH TIME </button>
         <button 
           disabled={fighterHp >= 10 || fighterHp === 0 || healLimit ===0 || !bossHp > 0}
           onClick={(e) => {
-            if (!endgame) return clickHeal()}}> heal me </button>
-        <button onClick={resetStats}>flee you fools</button>
+            if (!endgame) return clickHeal()}}> CHUG boo-boos away </button>
+        <button onClick={resetStats}>flee you fool</button>
             </div>
     </div>
   );
