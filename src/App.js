@@ -1,12 +1,12 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState } from 'react';
+// useCallback, useEffect
 // import LoadingOverlay from 'react-loading-overlay-ts';
 import  'react-router-dom'
 import { 
   TurnTally, 
-  // FighterHP, 
-  // BossHP,
   Fighter,
-  Boss 
+  Boss,
+  Modal
 } from './components'
 // imported components into index.js file 
 import './App.css';
@@ -17,10 +17,13 @@ import 'animate.css'
 
 function App() {
   // setup states for HP(fighter & boss) and turns.
-  const [bossHp, setBossHp] = useState(1000);
+  const [bossHp, setBossHp] = useState(1000)
   let maxHp = 10
   const [fighterHp, setFighterHp] = useState(maxHp)
   const [turn, setTurn] = useState(0)
+  const [active, setActive] = useState(0)
+  const [endgame, setEndgame] = useState(false)
+  const [healLimit, setHealLimit] = useState(3)
 
   // boss damage taken function, setup with random damage numbers
   const decreaseBossHp = () => {
@@ -30,6 +33,7 @@ function App() {
       // if boss hp is less than 0 return 0
       if(lastHp - damage <= 0) {
           setBossHp(0)
+          setEndgame(true)
       } else {
           lastHp = lastHp - damage
           setBossHp(lastHp)
@@ -38,12 +42,20 @@ function App() {
 
   // fighter taken function, fairly straight forward for the time being
   const decreaseFighterHp = () => {
+    let lastHp = fighterHp
+
+    if(lastHp - 1 <= 0){
+      setFighterHp(0)
+      setEndgame(true)
+    }else{
       setFighterHp(lastHp => lastHp - 1)
+    }
   }
   // fighter healing function, fairly straight forward.
   // might set limit on healing so players can't just heal spam
   const healFighterHp = () => {
-    setFighterHp(lastHp => lastHp + 2)
+    setFighterHp(lastHp => lastHp + 5)
+    setHealLimit(limit => limit - 1 )
   }
 
   // turn tracker function, might build the score around this. might also use something similar to limit healing
@@ -51,81 +63,66 @@ function App() {
       setTurn(lastTurn => lastTurn +1)
   }
 
-  const gameOver = () => {
-    if(fighterHp <= 0){
-      return true
-    }
-  }
 
 
-
-
-  // Handle functions (or how I remembered how to pass multiple functions in single prop to multiple components.)
-    // different set of functions in the handleClick for when different options chosen ( first handle click for attack, second handle click for healing.)
 
   // when player choose to fight, boss hp goes down, fighter hp goes down, turn tally goes up
   function clickAttack(event){
     decreaseBossHp();
     decreaseFighterHp();
     increaseTurn();
-    // console.log('click')
+    setActive(1);
   };
 
   // when player chooses heal, fighter hp goes up, turn tally goes up, boss takes no damage.
   function clickHeal(event){
     healFighterHp();
     increaseTurn();
+    setActive(2);
   }
 
   // total reset of turns and hp.
   function resetStats(event){
     setBossHp(1000);
     setTurn(0);
-    setFighterHp(10);
+    setFighterHp(maxHp);
+    setHealLimit(3);
+    setActive(3);
+    setEndgame(false);
   }
 
   // can I set this to be my toggleClass function?
   // const battleAnim = () => {
-  //   // on click, add fighter swig animation, 
-  // }
-
-  
-
-  // The overlay just shows up, but there's no way to get rid of it.
-
-    // const [isActive, setActive] = useState(true)
-    // const overlayClick = useCallback(() => {
-    //   setActive(value => !value)
-    // }, [])
-
-  
-  return (
-    // <LoadingOverlay
-    //   active={isActive}
-    //   spinner
-    //   text='Welcome to FIGHT GAME. Choose your weapon'
-    // >
-    //   <div style={{ height: 200 }}>
-    //     <p>Some content or children or something.</p>
-    //     <button onClick={overlayClick}>Toggle active</button>
-    //   </div>
-
-    <div className="container">
+    //   // on click, add fighter swig animation, 
+    // }
+    
+    return (
+      <div className="container">
+        {endgame && <Modal 
+                    bossHp={bossHp}
+                    resetStats={resetStats}  
+                    setEndgame={setEndgame}
+                    />}
+      <h1> FIGHT GAME</h1>
       <div className="models">
         <Boss
           bossHp={bossHp}
           setbossHp={setBossHp}
           decreaseBossHp={decreaseBossHp}
           handleClick={clickAttack}
-          resetStats={resetStats} />
+          resetStats={resetStats}
+          active={active} />
         <Fighter
           fighterHp={fighterHp}
+          healLimit={healLimit}
           setFighterHp={setFighterHp}
           decreaseFighterHp={decreaseFighterHp}
           handleClick={clickAttack}
-          resetStats={resetStats} />
+          resetStats={resetStats} 
+          active={active}/>
       </div>
       <div className="menu">
+        <p className="menu"> MENU </p>
         <TurnTally
           turn={turn}
           setTurn={setTurn}
@@ -133,29 +130,20 @@ function App() {
           resetStats={resetStats}
           />
           {/* if bossHP is less than/equal to 0, buttons are disabled */}
-          <p> What do you want to do? </p>
+          {/* right now the click attack and click heals are disabled when fighterHp hits 0. I'm using a function called gameover for that. I also made a new state that gets called to true */}
         <button 
           disabled={!bossHp > 0 || fighterHp === 0}
           onClick={(e) => {
-            if (!gameOver()) return clickAttack()}}> go time </button>
+            if (!endgame) return clickAttack()}}> go time </button>
         <button 
-          disabled={fighterHp === 10 || fighterHp === 0 || !bossHp > 0}
+          disabled={fighterHp >= 10 || fighterHp === 0 || healLimit ===0 || !bossHp > 0}
           onClick={(e) => {
-            if (!gameOver()) return clickHeal()}}> heal me </button>
+            if (!endgame) return clickHeal()}}> heal me </button>
         <button onClick={resetStats}>flee you fools</button>
-        {/* need to link flee button resetStats to end screen and score calculation trigger */}
-        {/* <button 
-                disabled={!isRunning || gameOver}
-                className="control-button" 
-                onClick={(e) => {
-                    if (!isRunning || gameOver) { return } 
-                    dispatch(moveLeft())
-                }}>Left</button> */}
-
-      </div>
+            </div>
     </div>
-    // </LoadingOverlay>
   );
 }
+
 
 export default App;
