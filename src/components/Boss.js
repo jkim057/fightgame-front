@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Boss = ({bossHp, clickAttack, resetStats, active }) => {
+const Boss = ({bossHp, clickAttack, resetStats, active, setActive }) => {
     const classes = {
         // entrance
         "0": "bossImg animate__animated animate__bounceInLeft",

@@ -40,13 +40,17 @@ function App() {
       }
   }
 
+  //** BREAK THINGS DOWN INTO TURNS */
+
   // fighter taken function, fairly straight forward for the time being
   const decreaseFighterHp = () => {
     let lastHp = fighterHp
-
+      // future notes: if class animation for taking damage exists, remove class and then add this add.
     if(lastHp - 1 <= 0){
       setFighterHp(0)
       setEndgame(true)
+      // future notes: add the animation of taking damage
+      // future notes: reset animation to baseline
     }else{
       setFighterHp(lastHp => lastHp - 1)
     }
@@ -64,18 +68,24 @@ function App() {
   }
 
   const aniTimer = (param) =>{
-    setTimeout(setActive(param), 1000)
+    setTimeout(setActive(param), 2000)
   }
 
 
+  //  I need to break down player actions and enemy actions into seperate turns so I can change the animation and states
+
+// set up an sword attack, and then make that an component and then pass that on to either fighter or boss
+
+// on attack, pass in the class INSIDE of that function, and THEN reset the class.
+
   // when player choose to fight, boss hp goes down, fighter hp goes down, turn tally goes up
   function clickAttack(event){
+    // setTimeout(setActive(5, 2000));
     decreaseBossHp();
     decreaseFighterHp();
     increaseTurn();
     setActive(1);
     // setActive()
-    // aniTimer(5);
   };
 
   // when player chooses heal, fighter hp goes up, turn tally goes up, boss takes no damage.
@@ -96,10 +106,9 @@ function App() {
     setEndgame(false);
   }
 
-  // can I set this to be my toggleClass function?
-  // const battleAnim = () => {
-    //   // on click, add fighter swig animation, 
-    // }
+  function timeTicks(){
+    {<p>teehee ya yo</p>}
+  }
     
     return (
       <div className="container">
@@ -116,7 +125,8 @@ function App() {
           decreaseBossHp={decreaseBossHp}
           handleClick={clickAttack}
           resetStats={resetStats}
-          active={active} />
+          active={active}
+          setActive={setActive} />
         <Fighter
           fighterHp={fighterHp}
           healLimit={healLimit}
@@ -124,7 +134,8 @@ function App() {
           decreaseFighterHp={decreaseFighterHp}
           handleClick={clickAttack}
           resetStats={resetStats} 
-          active={active}/>
+          active={active}
+          setActive={setActive}/>
       </div>
       <div className="menu">
         <p className="menu"> MENU </p>
@@ -145,6 +156,7 @@ function App() {
           onClick={(e) => {
             if (!endgame) return clickHeal()}}> CHUG boo-boos away </button>
         <button onClick={resetStats}>flee you fool</button>
+        <div> {<p>teehee ya yo</p>} </div>
             </div>
     </div>
   );

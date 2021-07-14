@@ -1,7 +1,7 @@
 import React from 'react';
 // import fighterImg from './img/fighter.jpg'
 
-const Fighter = ({fighterHp, clickAttack, clickHeal, resetStats, healLimit, active}) => {
+const Fighter = ({fighterHp, clickAttack, clickHeal, resetStats, healLimit, active, setActive}) => {
     const classes = {
         // entrance
         "0": "fighterImg animate__animated animate__bounceInRight",
@@ -21,7 +21,8 @@ const Fighter = ({fighterHp, clickAttack, clickHeal, resetStats, healLimit, acti
     }
 
     return (
-        <div className="fighterContainer" onClick={clickAttack}>
+        <div className="fighterContainer" 
+            onClick={clickAttack}>
                 <h1 className="fighterName fighterStatus" onClick={clickHeal}> Challenger </h1>
                 <p className="fighterHp fighterStatus" onClick={resetStats}> HP : {fighterHp} / 10 </p>
                 <p className="fighterHeals fighterStatus"> {healLimit}  Potions left!</p>

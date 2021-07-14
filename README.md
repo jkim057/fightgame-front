@@ -20,6 +20,7 @@ It's deployed here => https://fight-game-front.herokuapp.com/
 1. react with create-react-app
 2. DOM with react-router-dom
 3. Animation.css with animate.css --save
+4. setTimeout with react-timeout
 
 ## User Stories
 1. I want a chance to win against the boss.(user).
@@ -70,6 +71,7 @@ It's deployed here => https://fight-game-front.herokuapp.com/
 1. Need to get animation to be able to repeat
 1. Need to fix mobile formatting
 
+1. NOTES:  Right now, I have the fighter attack + boss reaction animations and the fighter hp decrease + boss hp decrease happen all on 1 button click. If I can break up the actions into seperate turns (ex: make a attack component and a reaction component, then pass those along when the fighter is acting followed by the boss action) it would give me more space and more flexiblity. current app is still stiff I guess.
 ### MVP
 #### Bronze Goals
 1. Mobile Formatting:
