@@ -70,6 +70,8 @@ It's deployed here => https://fight-game-front.herokuapp.com/
 1. Need to be able to get animation to play in right order
 1. Need to get animation to be able to repeat
 1. Need to fix mobile formatting
+2. How do I fix the desynced animation?
+2. Take a better look at the slots recusion example from Shaw. 
 
 1. NOTES:  Right now, I have the fighter attack + boss reaction animations and the fighter hp decrease + boss hp decrease happen all on 1 button click. If I can break up the actions into seperate turns (ex: make a attack component and a reaction component, then pass those along when the fighter is acting followed by the boss action) it would give me more space and more flexiblity. current app is still stiff I guess.
 ### MVP
