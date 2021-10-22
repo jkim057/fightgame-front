@@ -107,7 +107,8 @@ function App() {
   }
 
   function timeTicks(){
-    {<p>teehee ya yo</p>}
+    {<p>teehee ta yo</p>}
+    // not an actual thing, currently a placeholder for future features I wanted to implement.
   }
     
     return (
