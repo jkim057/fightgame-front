@@ -40,7 +40,8 @@ It's deployed here => https://fight-game-front.herokuapp.com/
 
 1. Animations need to be set up setTimeout and set up the sequence of attack/reactions and then return to wait screen otherwise animations won't play properly
 
-
+1. Shaw showed me a resource to study to fix animations. 
+https://replit.com/@ShawKitajima/Slots-Recursion-Example#script.js
 ## What's done?
 1. TurnTally tracker, but kinda basic ✅
 1. fighterHP tracker done ✅
