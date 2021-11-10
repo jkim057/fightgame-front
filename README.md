@@ -40,8 +40,7 @@ It's deployed here => https://fight-game-front.herokuapp.com/
 
 1. Animations need to be set up setTimeout and set up the sequence of attack/reactions and then return to wait screen otherwise animations won't play properly
 
-1. Shaw showed me a resource to study to fix animations. 
-https://replit.com/@ShawKitajima/Slots-Recursion-Example#script.js
+
 ## What's done?
 1. TurnTally tracker, but kinda basic ✅
 1. fighterHP tracker done ✅
@@ -75,6 +74,9 @@ https://replit.com/@ShawKitajima/Slots-Recursion-Example#script.js
 2. Take a better look at the slots recusion example from Shaw. 
 
 1. NOTES:  Right now, I have the fighter attack + boss reaction animations and the fighter hp decrease + boss hp decrease happen all on 1 button click. If I can break up the actions into seperate turns (ex: make a attack component and a reaction component, then pass those along when the fighter is acting followed by the boss action) it would give me more space and more flexiblity. current app is still stiff I guess.
+
+1. Shaw showed me a resource to study to fix animations. 
+I need to study it and see if that can fix my issues.
 ### MVP
 #### Bronze Goals
 1. Mobile Formatting:
@@ -103,3 +105,4 @@ https://replit.com/@ShawKitajima/Slots-Recursion-Example#script.js
 1. https://www.npmjs.com/package/react-loading-overlay-ts
 1. https://www.pluralsight.com/guides/create-a-hover-button-in-a-react-app
 1. https://reactjs.org/docs/conditional-rendering.html
+<!-- 1. https://replit.com/@ShawKitajima/Slots-Recursion-Example#script.js -->
