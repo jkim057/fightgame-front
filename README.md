@@ -98,6 +98,7 @@ I need to study it and see if that can fix my issues.
 #### Gold Goals
 1. Need way for add form that players can add name
 1. Need way to connect winners object to backend? (so winner object with equipment(?), name, and score)
+* Would setting up this backend mean I would have to rewrite everything to make things save?
 
 
 # Sources:
